@@ -19,5 +19,18 @@ printf "${b}[${g}*${b}]${g} Installing distro ${r}\n"
 proot-distro install ubuntu 
 
 printf "${b}[${g}*${b}]${g} Ubuntu installed! Now run another command './GUI' ${r}\n"
+cat > $PREFIX/bin/server << 'EOF'
+#!/bin/bash
+echo "Starting server... started!"
+termux-x11 :0
+EOF
+
+chmod +x $PREFIX/bin/server
+cat > $PREFIX/bin/ubuntu << 'EOF'
+#!/bin/bash
+proot-distro login ubuntu --shared-tmp -- su - ubuntu
+EOF
+
+chmod +x $PREFIX/bin/ubuntu
 }
 software
