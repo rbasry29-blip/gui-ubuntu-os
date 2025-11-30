@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 g='\e[92m'
 b='\e[34m'
 r='\e[0m'
@@ -33,6 +33,7 @@ printf "${b}[${g}*${b}]${g} Finishing...
 Everything is good!
 You can launch Ubuntu via termux-x11 using commands:
 1. server
+Then open another session and run -
 2. ubuntu
 3. gui
 Enjoy! ${r}\n"
