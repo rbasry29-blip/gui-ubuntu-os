@@ -2,6 +2,7 @@
 g='\e[92m'
 b='\e[34m'
 r='\e[0m'
+y='\e[1;33m'
 
 a(){
 
@@ -32,7 +33,7 @@ printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
 printf "${b}[${g}*${b}]${g} Finishing...
 Everything is good!
 You can launch Ubuntu via termux-x11 using commands:
-1. server
+${y}1. server
 Then open another session and run -
 2. ubuntu
 3. gui
