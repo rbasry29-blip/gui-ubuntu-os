@@ -17,9 +17,8 @@ printf "${b}[${g}*${b}]${c} Updating and Installing packages.  This may take up 
 proot-distro login ubuntu -- apt update -y 
 proot-distro login ubuntu -- dpkg --configure -a 
 proot-distro login ubuntu -- apt update -y 
-proot-distro login ubuntu -- apt install xubuntu-desktop dbus-x11 -y 
-proot-distro login ubuntu -- printf "${b}[${g}*${b}]${g} Adding user ubuntu ${r}\n" 
-adduser ubuntu 
+proot-distro login ubuntu -- apt install xubuntu-desktop dbus-x11 -y printf "${b}[${g}*${b}]${g} Adding user ubuntu ${r}\n" 
+proot-distro login ubuntu -- adduser ubuntu
 
 
 # Create gui launcher inside Ubuntu
