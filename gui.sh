@@ -170,6 +170,13 @@ printf "${c}[${g}${c}Installing xserver-xorg-video-all${r}\n"
 proot-distro login ubuntu -- apt install xserver-xorg-video-all -y
 
 
+printf "${c}[${g}${c}Installing dbus-x11${r}\n"
+proot-distro login ubuntu -- apt install dbus-x11 -y -y
+
+printf "${c}[${g}${c}Installing xubuntu-desktop${r}\n"
+proot-distro login ubuntu -- apt install xubuntu-desktop  -y
+
+
 
 clear
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
