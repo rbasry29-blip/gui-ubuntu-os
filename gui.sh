@@ -30,11 +30,8 @@ proot-distro login ubuntu -- apt update -y
 printf "${c}[${g}*${c}]${g} Installing fwupd${r}\n"
 proot-distro login ubuntu -- apt install fwupd -y
 
-printf "${c}[${g}*${c}]${g} Installing fwupd-amd64-signed${r}\n"
-proot-distro login ubuntu -- apt install fwupd-amd64-signed -y
 
-printf "${c}[${g}*${c}]${g} Installing fwupd-signed${r}\n"
-proot-distro login ubuntu -- apt install fwupd-signed -y
+
 
 printf "${c}[${g}*${c}]${g} Installing fwupdate${r}\n"
 proot-distro login ubuntu -- apt install fwupdate -y
@@ -114,8 +111,7 @@ proot-distro login ubuntu -- apt install bluetooth -y
 printf "${c}[${g}*${c}]${g} Installing bolt${r}\n"
 proot-distro login ubuntu -- apt install bolt -y
 
-printf "${c}[${g}*${c}]${g} Installing wpa_supplicant${r}\n"
-proot-distro login ubuntu -- apt install wpa_supplicant -y
+
 
 printf "${c}[${g}*${c}]${g} Installing isc-dhcp-client${r}\n"
 proot-distro login ubuntu -- apt install isc-dhcp-client -y
@@ -126,8 +122,7 @@ proot-distro login ubuntu -- apt install isc-dhcp-common -y
 printf "${c}[${g}*${c}]${g} Installing ppp${r}\n"
 proot-distro login ubuntu -- apt install ppp -y
 
-printf "${c}[${g}*${c}]${g} Installing pppd${r}\n"
-proot-distro login ubuntu -- apt install pppd -y
+
 
 printf "${c}[${g}*${c}]${g} Installing ubuntu-drivers-common${r}\n"
 proot-distro login ubuntu -- apt install ubuntu-drivers-common -y
