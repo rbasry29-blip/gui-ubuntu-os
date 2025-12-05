@@ -36,29 +36,49 @@ Now run commands in termux
 ```
 pkg update -y
 
+
+
 ```
 pkg install git -y
+
 
 ```
 git clone https://github.com/rbasry29-blip/PROOT-DISTRO-UBUNTU
 
 
 
+
+
 Then,  run
 
 
+
+```
 cd PROOT-DISTRO-UBUNTU
 
 
+
+
+```
 chmod +x *
 
 
+
+
+```
 ./cli.sh
 
 
 
 After that, run
+
+
+
+```
 ./gui.sh
+
+
+
 
 
 In any question,  only hit enter,  
