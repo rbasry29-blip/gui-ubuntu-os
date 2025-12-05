@@ -115,3 +115,21 @@ chmod +x *
 And go to termux-x11 app and
 Enjoy
 
+# Stuck problem
+
+If you stuck on 
+```
+setting up elementary-xfce-icon-theme
+```
+And in plocate
+```
+settting up plocate (intellizing database)
+```
+Then run 
+```
+./fix-stuch.sh
+```
+Then run
+```
+./gui.sh
+```
