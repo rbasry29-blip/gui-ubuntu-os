@@ -1,5 +1,5 @@
 # PROOT-DISTRO-UBUNTU
-# Previwe
+
 <img width="1600" height="720" alt="1000011249" src="https://github.com/user-attachments/assets/ed2211d3-bab7-4fdb-8de0-fa8f4c0e383a" />
 
 
@@ -125,9 +125,14 @@ And in plocate
 ```
 settting up plocate (intellizing database)
 ```
-Then run 
+Then , hold termix app 
+click on app info
+click on force stop and ok .
+Also clean the cache
+then run in termux
+
 ```
-./fix-stuch.sh
+./PROOT-DISTRO-UBUNTU/fix-stuch.sh
 ```
 Then run
 ```
