@@ -24,11 +24,12 @@ first install two apps
 
 
 
-1. Termux (https://github.com/termux/termux-app/releases/tag/v0.118.3/termux-app_v0.118.3+github-debug_arm64-v8a.apk)
+1. Termux [HERE](https://github.com/termux/termux-app/releases/tag/v0.118.3/termux-app_v0.118.3+github-debug_arm64-v8a.apk)
 
 
 
-2 Termux-x11(https://github.com/termux/termux-x11/releases/tag/nightly)
+2 Termux-x11 
+[HERE](https://github.com/termux/termux-x11/releases/tag/nightly)
 
 
 
