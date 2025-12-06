@@ -133,7 +133,8 @@ Also clean the cache
 then run in termux
 
 ```
-./PROOT-DISTRO-UBUNTU/fix-stuch.sh
+cd PROOT-DISTRO-UBUNTU
+./fix-stuck.sh
 ```
 Then run
 ```
