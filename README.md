@@ -24,11 +24,11 @@ first install two apps
 
 
 
-1. Termux [HERE](https://github.com/termux/termux-app/releases/download/v0.119.0-beta.3/termux-app_v0.119.0-beta.3+apt-android-7-github-debug_arm64-v8a.apk)
+1. Termux from here [HERE](https://github.com/termux/termux-app/releases/download/v0.119.0-beta.3/termux-app_v0.119.0-beta.3+apt-android-7-github-debug_arm64-v8a.apk)
 
 
 
-2 Termux-x11 
+2 Termux-x11 from here
 [HERE](https://github.com/termux/termux-x11/releases/download/nightly/app-arm64-v8a-debug.apk)
 
 
@@ -127,7 +127,7 @@ And in plocate
 ```
 settting up plocate (intellizing database)
 ```
-Then , hold termix app 
+Then , hold termux app 
 click on app info
 click on force stop and ok .
 Also clean the cache
