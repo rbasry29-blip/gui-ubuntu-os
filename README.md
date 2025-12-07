@@ -143,3 +143,20 @@ Then run
 ./gui.sh
 ```
 # Termux-x11 setup 
+First , run 
+```
+server
+```
+in termux , and open another session . In another session , run 
+```
+ubuntu
+```
+and then run 
+```
+gui
+```
+inside ubuntu .
+
+Then you can see a notification of Termix-x11 app ↓
+<img width="720" height="1600" alt="1000011368" src="https://github.com/user-attachments/assets/cafa13e5-0348-4101-b3b0-a24b6f17e077" />
+click on 
