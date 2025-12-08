@@ -33,7 +33,7 @@ first install two apps
 [HERE](https://github.com/termux/termux-x11/releases/download/nightly/app-arm64-v8a-debug.apk)
 
 
-
+3.Gboard from [Google play ](https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin)
 Now run commands in termux
 
 
