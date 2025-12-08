@@ -1,5 +1,7 @@
 # PROOT-DISTRO-UBUNTU
 
+PROOT-DISTRO-UBUNTU | Termux Ubuntu | Modded Ubuntu | Ubuntu in Termux | Termux-X11 Ubuntu
+
 <img width="1600" height="720" alt="1000011367" src="https://github.com/user-attachments/assets/fe3892ae-e286-46d1-88e3-22795acdf09f" />
 
 
