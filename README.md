@@ -194,3 +194,12 @@ go back.  click on "Output" ↓
 
 
 ![1000011394](https://github.com/user-attachments/assets/1a59dcd3-fe37-4391-ac1f-795e5c29c8c6)
+
+
+
+enable "Fullscreen"↓
+
+
+![1000011395](https://github.com/user-attachments/assets/30519f6d-2d95-40b7-b8d6-d9f8f99329c2)
+
+
