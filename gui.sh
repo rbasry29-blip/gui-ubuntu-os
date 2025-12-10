@@ -11,7 +11,7 @@ printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
 printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
 printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Updating packages .....${r}\n"
+printf "${b}[${g}*${b}]${c} Updating packages ${g}.....${r}\n"
 
 # Login to Ubuntu and run commands sequentially
 proot-distro login ubuntu -- apt update -y
@@ -22,7 +22,7 @@ printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
 printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
 printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Installing packages .....${r}\n"
+printf "${b}[${g}*${b}]${c} Installing packages ${g}.....${r}\n"
 
 proot-distro login ubuntu -- dpkg --configure -a 
 proot-distro login ubuntu -- apt update -y 
@@ -341,7 +341,7 @@ printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
 printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
 printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
 
-printf "${b}[${g}*${b}]${g} Creating launchers .....${r}\n"
+printf "${b}[${g}*${b}]${g} Creating launchers ${g}.....${r}\n"
 
 
 
@@ -355,14 +355,15 @@ xfce4-session &
 EOF
 chmod +x /usr/bin/gui"
 
-printf "${b}[${g}*${b}]${g} Adding finishing touches   ${r}\n"
+printf "${b}[${g}*${b}]${g} Adding finishing touches ${g}.....${r}\n"
+proot-distro login ubuntu -- --configure -a 
 
 clear
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
 printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
 printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Finishing...
+printf "${b}[${g}*${b}]${c} Finishing ${g}.....
 Everything is good!
 You can launch Ubuntu via termux-x11 using commands:
 1. ${y}server${c}
