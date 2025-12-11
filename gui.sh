@@ -269,9 +269,9 @@ PKGS_TO_INSTALL=()
 
 # Browser selection mapping
 case "$BROWSER_CHOICE" in
-    1) PKGS_TO_INSTALL+=("firefox-esr") ;;
+    1) PKGS_TO_INSTALL+=("firefox") ;;
     2) PKGS_TO_INSTALL+=("falkon") ;;
-    3) PKGS_TO_INSTALL+=("firefox-esr" "falkon") ;;
+    3) PKGS_TO_INSTALL+=("firefox" "falkon") ;;
     *) ;;
 esac
 
