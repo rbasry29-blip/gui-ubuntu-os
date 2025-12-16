@@ -1,4 +1,4 @@
-# PROOT-DISTRO-UBUNTU
+# proot-distro-ubuntu
 
 PROOT-DISTRO-UBUNTU | Termux Ubuntu | Modded Ubuntu | Ubuntu in Termux | Termux-X11 Ubuntu
 
@@ -53,7 +53,7 @@ pkg update || true
 pkg install git -y
 ```
 ```
-git clone https://github.com/rbasry29-blip/PROOT-DISTRO-UBUNTU
+git clone https://github.com/rbasry29-blip/proot-distro-ubuntu
 ```
 
 
@@ -64,7 +64,7 @@ Then,  run
 
 
 ```
-cd PROOT-DISTRO-UBUNTU
+cd proot-distro-ubuntu
 ```
 
 
@@ -118,8 +118,8 @@ If you want a full copy-paste command , use this -
 pkg update || true
 yes | pkg upgrade
 pkg install git -y
-git clone https://github.com/rbasry29-blip/PROOT-DISTRO-UBUNTU
-cd PROOT-DISTRO-UBUNTU
+git clone https://github.com/rbasry29-blip/proot-distro-ubuntu
+cd 
 chmod +x *
 ./cli.sh
 ./gui.sh
