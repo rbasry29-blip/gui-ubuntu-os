@@ -1,10 +1,22 @@
 #!/bin/bash
-g='\e[92m'
-b='\e[34m'
-r='\e[0m'
-y='\e[1;33m'
-c='\e[1;96m'
+g='\e[92m'                                                       b='\e[34m'                                                       r='\e[0m'
+y='\e[1;33m'                                                     c='\e[1;96m'
+spinner() {                                                          local msg="$1"
+    shift                                                            local cmd="$*"                                                   local frames=( "∆___" "_∆__" "__∆_" "___∆" )
+    local i=0                                                                                                                         # Start spinner in background
+    (                                                                    while :; do
+            printf "\r${c}${msg} [${y}${frames[i]}${c}]"                     i=$(( (i + 1) % 4 ))                                             sleep 0.5                                                    done                                                         ) &                                                              local spin_pid=$!                                                                                                                 # Run all commands in foreground, hide output                    bash -c "$cmd" >/dev/null 2>&1                                   local cmd_status=$?                                          
+    # Stop spinner
+    kill "$spin_pid" >/dev/null 2>&1
+    wait "$spin_pid" 2>/dev/null
 
+    # Print final line
+    if [ $cmd_status -eq 0 ]; then
+        printf "\r${c}${msg} [${y}∆___${c}] ✅ Done\n"
+    else
+        printf "\r${c}${msg} [${y}∆___${c}] ❌ Failed\n"
+    fi
+}
 clear
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
@@ -25,11 +37,11 @@ for t in "${LINES[@]}"; do
     sleep 0.08
   done
   echo
-  sleep 0.4
+  sleep 2
 done
 printf "$r"
-dpkg --configure -a
-apt --fix-broken install
+spinner "${b}[${g}*${b}]${c} Cleaning termux environment${g}....." "dpkg --configure -a && apt --fix-broken install && sleep 5"
+sleep 1
 clear
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
@@ -37,8 +49,8 @@ printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
 printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
 printf "${b}[${g}*${b}]${c} Updating and installing packages ${g}.....${r}\n"
 yes | termux-setup-storage
-apt update -y && apt install proot-distro -y && apt install x11-repo  -y && apt install termux-x11-nightly -y
-apt install proot-distro -y
+spinner "${b}[${g}*${b}]${c} Installing packages${g}....." "apt update -y && apt install proot-distro -y && apt install x11-repo  -y && apt install termux-x11-nightly -y && sleep 3"
+sleep 1
 clear
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
@@ -76,6 +88,3 @@ proot-distro login ubuntu --shared-tmp -- su - ubuntu
 EOF
 
 chmod +x $PREFIX/bin/ubuntu
-}
-
-commands
