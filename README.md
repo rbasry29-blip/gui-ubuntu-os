@@ -1,4 +1,4 @@
-# proot-distro-ubuntu
+# I am owner
 
 PROOT-DISTRO-UBUNTU | Termux Ubuntu | Modded Ubuntu | Ubuntu in Termux | Termux-X11 Ubuntu
 
