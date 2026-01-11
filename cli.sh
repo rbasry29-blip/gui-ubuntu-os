@@ -43,6 +43,28 @@ printf '\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n'
 printf '\e[1;92m    |__| |__] |__| | \\|  |  |__|\n'
 printf '\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m'
 printf "$c"
+# ================= Internet Check =================
+check_internet() {
+    TARGET_URL="https://github.com/rbasry29-blip/gui-ubuntu-os"
+
+    if command -v curl >/dev/null 2>&1; then
+        curl -Is --connect-timeout 5 "$TARGET_URL" >/dev/null 2>&1
+    elif command -v wget >/dev/null 2>&1; then
+        wget -q --spider --timeout=5 "$TARGET_URL"
+    else
+        echo "Error: curl or wget is required to check internet connection."
+        exit 1
+    fi
+
+    if [ $? -ne 0 ]; then
+        echo "Sorry, internet connection is needed."
+        exit 1
+    fi
+}
+
+# Run internet check before anything else
+check_internet
+# ==================================================
 LINES=(
   "Welcome"
   "Wish your work will easier"
