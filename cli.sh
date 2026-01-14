@@ -1,10 +1,30 @@
 #!/bin/bash
+
 g='\e[1;92m'   # Green
 b='\e[34m'     # Blue
 r='\e[0m'      # Reset
 y='\e[1;33m'   # Yellow
 c='\e[1;96m'   # Light cyan
-
+ubuntu_path="$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu"
+banner(){
+clear
+printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
+printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
+printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
+printf "\e[1;92m         GUI-UBUNTU-OS\n\n\e[0m"
+}
+finish(){
+printf "${b}[${g}*${b}]${g} Ubuntu installed! ${r}\n"
+printf "${b}[${g}*${b}]${g} Run ${y} ubuntu ${g} to get Ubuntu cli ${r}\n"
+printf "${b}[${g}*${b}]${g} If you want GUI , Then run ${r}\n"
+printf "${b}[${g}*${b}]${y} ./gui.sh ${r}\n"
+}
+check_ubuntu_installed() {
+    if [[ -d "$ubuntu_path" ]]; then
+        printf "${b}[${g}!${b}]${c} Distro already available , skipping progress.${r}\n"
+        exit 1
+    fi
+}
 spinner() {
     local msg="$1"
     shift
@@ -37,13 +57,6 @@ spinner() {
         printf "\r${c}${msg} [${y}∆___${c}] ❌ Failed\n"
     fi
 }
-clear
-printf '\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n'
-printf '\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n'
-printf '\e[1;92m    |__| |__] |__| | \\|  |  |__|\n'
-printf '\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m'
-printf "$c"
-# ================= Internet Check =================
 check_internet() {
     TARGET_URL="https://github.com/rbasry29-blip/gui-ubuntu-os"
 
@@ -52,7 +65,7 @@ check_internet() {
     elif command -v wget >/dev/null 2>&1; then
         wget -q --spider --timeout=5 "$TARGET_URL"
     else
-        echo "Error: curl or wget is required to check internet connection."
+        printf "${b}[${g}*${b}]${c} Sorry, wget or curl is required for verification.\n"
         exit 1
     fi
 
@@ -61,10 +74,7 @@ check_internet() {
         exit 1
     fi
 }
-
-# Run internet check before anything else
-check_internet
-# ==================================================
+software(){
 LINES=(
   "Welcome"
   "Wish your work will easier"
@@ -84,68 +94,36 @@ done
 printf "$r"
 spinner "${b}[${g}*${b}]${c} Cleaning termux environment${g}....." "dpkg --configure -a && apt --fix-broken install && sleep 5"
 sleep 1
-clear
-printf '\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n'
-printf '\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n'
-printf '\e[1;92m    |__| |__] |__| | \\|  |  |__|\n'
-printf '\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m'
+banner
 
 yes | termux-setup-storage
 spinner "${b}[${g}*${b}]${c} Installing packages${g}....." "yes | apt update  && yes | apt install proot-distro && yes | apt install x11-repo  && yes | apt install termux-x11-nightly && yes | apt install x11-repo "
 sleep 1
-clear
-printf '\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n'
-printf '\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n'
-printf '\e[1;92m    |__| |__] |__| | \\|  |  |__|\n'
-printf '\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m'
-
+banner
 printf "${b}[${g}*${b}]${g} Installing distro${g}.....${r}\n"
 proot-distro install ubuntu
-
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf '\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m'
-printf "${b}[${g}*${b}]${g} Adding user to Ubuntu ${g}.....${r}\n"
-
+banner
 set -e
-
 # Ask for username (TERMUX)
 printf "${b}[${g}*${b}]${g}"
 read -rp " Enter username: " USERNAME
-
 # Ask for password (TERMUX, hidden)
 printf "${b}[${g}*${b}]${g}"
 read -rsp " Enter password: " PASSWORD
 echo
-
 # Run everything INSIDE Ubuntu
 proot-distro login ubuntu -- bash -c "
 set -e
-
 # Create user (no full name, no questions)
 useradd -m -s /bin/bash \"$USERNAME\"
-
 # Set password non-interactively
 echo \"$USERNAME:$PASSWORD\" | chpasswd
-
 # Add to sudo group
 usermod -aG sudo \"$USERNAME\"
 "
-
-
 printf "${b}[${g}*${b}]${g} User '$USERNAME' created and added to sudo group inside Ubuntu.\n"
-
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf '\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m'
-printf "${b}[${g}*${b}]${g} Ubuntu installed! ${r}\n"
-printf "${b}[${g}*${b}]${g} Run ${y} ubuntu ${g} to get Ubuntu cli ${r}\n"
-printf "${b}[${g}*${b}]${g} If you want GUI , Then run ${r}\n"
-printf "${b}[${g}*${b}]${y} ./gui.sh ${r}\n"
-
+sleep 3
+banner
 cat > $PREFIX/bin/server << 'EOF'
 #!/bin/bash
 echo Starting server... started!
@@ -159,3 +137,10 @@ proot-distro login ubuntu --shared-tmp -- su - $USERNAME
 EOF
 
 chmod +x $PREFIX/bin/ubuntu
+}
+banner
+check_internet
+check_ubuntu_installed
+printf "$c"
+software
+finish
