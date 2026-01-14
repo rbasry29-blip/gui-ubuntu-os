@@ -1,5 +1,10 @@
 # gui-ubuntu-os 
-
+# Update 1.12.20
+# What's new 
+- Fixed some bug
+- Added more feature
+- Full [8GB] or liteweight choice [2GB]
+- Improved performance
 PROOT-DISTRO-UBUNTU | Termux Ubuntu | Modded Ubuntu | Ubuntu in Termux | Termux-X11 Ubuntu
 
 <img width="1600" height="720" alt="1000011367" src="https://github.com/user-attachments/assets/fe3892ae-e286-46d1-88e3-22795acdf09f" />
