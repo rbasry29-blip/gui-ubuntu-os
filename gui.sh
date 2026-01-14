@@ -30,6 +30,7 @@ check_internet() {
 }
 
 # Run internet check before anything else
+banner
 check_internet
 install_full_desktop(){
 banner
