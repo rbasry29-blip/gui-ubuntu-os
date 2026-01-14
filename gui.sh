@@ -4,13 +4,35 @@ b='\e[34m'
 r='\e[0m'
 y='\e[1;33m'
 c='\e[1;96m'
-
-
+banner(){
 clear
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
 printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
 printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
+}
+check_internet() {
+    TARGET_URL="https://github.com/rbasry29-blip/gui-ubuntu-os"
+
+    if command -v curl >/dev/null 2>&1; then
+        curl -Is --connect-timeout 5 "$TARGET_URL" >/dev/null 2>&1
+    elif command -v wget >/dev/null 2>&1; then
+        wget -q --spider --timeout=5 "$TARGET_URL"
+    else
+        echo "Error: curl or wget is required to check internet connection."
+        exit 1
+    fi
+
+    if [ $? -ne 0 ]; then
+        echo "Sorry, internet connection is needed."
+        exit 1
+    fi
+}
+
+# Run internet check before anything else
+check_internet
+install_full_desktop(){
+banner
 printf "${b}[${g}*${b}]${c} Updating packages ${g}.....${r}\n"
 
 # Login to Ubuntu and run commands sequentially
@@ -24,8 +46,8 @@ printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
 printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
 printf "${b}[${g}*${b}]${c} Installing packages ${g}.....${r}\n"
 
-proot-distro login ubuntu -- dpkg --configure -a 
-proot-distro login ubuntu -- apt update -y 
+proot-distro login ubuntu -- dpkg --configure -a
+proot-distro login ubuntu -- apt update -y
 
 printf "${c}[${g}*${c}]${g} Installing fwupd${r}\n"
 proot-distro login ubuntu -- apt install fwupd -y
@@ -167,16 +189,16 @@ proot-distro login ubuntu -- apt install xubuntu-desktop -y
 
 
 
- 
 
-# Colors 
+
+# Colors
 b="\e[1;34m"   # Blue
 g="\e[1;92m"   # Light green
 c="\e[1;96m"   # Light cyan
 r="\e[0m"      # Reset
 
 # --------------------------
-#  
+#
 # --------------------------
 
 # Browser
@@ -334,7 +356,7 @@ done
 printf "${b}[${g}*${b}]${c} Installation process finished${r}\n"
 
 
-  
+
 clear
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
@@ -356,19 +378,56 @@ EOF
 chmod +x /usr/bin/gui"
 
 printf "${b}[${g}*${b}]${g} Adding finishing touches ${g}.....${r}\n"
-proot-distro login ubuntu -- --configure -a 
+proot-distro login ubuntu -- dpkg --configure -a
+finish
+}
+finish(){
+banner
+printf "${b}[${g}*${b}]${c} Finishing ${g}.....\n"
+printf "${b}[${g}*${b}]${c}${g} Everything is good!\n"
+printf "${b}[${g}*${b}]${c}${g} You can launch Ubuntu via termux-x11 using commands:\n"
+printf "${b}[${g}*${b}]${c}${g} server${c}\n"
+printf "${b}[${g}*${b}]${g} Then open another session and run -\n"
+printf "${b}[${g}*${b}]${c}${y} ubuntu${c}\n"
+printf "${b}[${g}*${b}]${g} Inside ubuntu run -\n"
+printf "${b}[${g}*${b}]${c}${y} gui${c}\n"
+printf "${b}[${g}*${b}]${g} Then open Termux-x11 and \n"
+printf "${b}[${g}*${b}]${c} Enjoy! ${r}\n"
+}
 
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Finishing ${g}.....
-Everything is good!
-You can launch Ubuntu via termux-x11 using commands:
-${b}[${g}*${b}]${c}${y}server${c}
-Then open another session and run -
-${b}[${g}*${b}]${c}${y}ubuntu${c}
-${b}[${g}*${b}]${c}${y}gui${c}
-${b}[${g}*${b}]${c}Enjoy! ${r}\n"
+install_lite_desktop(){
+banner
+printf "${c}[${g}*${c}]${g} Installing xfce4-session${r}\n"
+proot-distro login ubuntu -- apt install xfce4-session -y
+printf "${c}[${g}*${c}]${g} Installing xfce4${r}\n"
+proot-distro login ubuntu -- apt install xfce4 -y
+printf "${c}[${g}*${c}]${g} Installing dbus-x11${r}\n"
+proot-distro login ubuntu -- apt install dbus-x11 -y
+banner
+finish
+proot-distro login ubuntu -- bash -c "cat > /usr/bin/gui << 'EOF'
+#!/bin/bash
+export DISPLAY=:0
+dbus-launch
+xfce4-session &
+EOF
+chmod +x /usr/bin/gui"
+}
+desktop_configuration() {
+    banner
+    printf "${b}[${g}1${b}]${c} Full Desktop [8GB] ${r}\n"
+    printf "${b}[${g}2${b}]${c} Lite Desktop [2GB] ${r}\n"
+    printf "${b}[${g}2${b}]${c}"
+    printf "$c"
+    read -p " Enter selection [1-2]: " selection
 
+    if [ "$selection" = "1" ]; then
+        install_full_desktop
+    elif [ "$selection" = "2" ]; then
+        install_lite_desktop
+    else
+        printf "${b}[${g}!${b}]${c} Incorrect choice${r}\n"
+    fi
+}
+
+desktop_configuration
