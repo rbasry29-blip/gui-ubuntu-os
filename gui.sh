@@ -24,7 +24,7 @@ check_internet() {
     fi
 
     if [ $? -ne 0 ]; then
-        echo "Sorry, internet connection is needed."
+        printf "${b}[${g}*${b}]${c} Sorry, internet connection is needed.\n"
         exit 1
     fi
 }
