@@ -1,5 +1,4 @@
-#!/bin/bash
-
+ #!/bin/bash
 g='\e[1;92m'   # Green
 b='\e[34m'     # Blue
 r='\e[0m'      # Reset
