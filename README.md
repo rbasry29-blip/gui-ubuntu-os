@@ -22,7 +22,7 @@
 # Requirements 
 
 
- - 7 GB of storage
+ - At least 2 GB of storage
 
 
  - Termux and 
