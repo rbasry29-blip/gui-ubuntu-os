@@ -30,7 +30,7 @@
  - Termux-x11 app
 
 
-# Installation 
+# 🛠️ Installation 
 first install two apps 
 
 
@@ -130,7 +130,7 @@ chmod +x *
 ```
 And go to termux-x11 app and
 Enjoy
-## *Please give a star to this report*
+## *Please give a star ⭐ to this report*
 # Stuck problem
 
 If you stuck on 
