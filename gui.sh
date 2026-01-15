@@ -6,11 +6,17 @@ y='\e[1;33m'
 c='\e[1;96m'
 banner(){
 clear
+
 printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
+
 printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
+
 printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
+
+printf "\e[1;92m         GUI-UBUNTU-OS\n\n\e[0m"
+
 }
+
 check_internet() {
     TARGET_URL="https://github.com/rbasry29-blip/gui-ubuntu-os"
 
@@ -24,7 +30,7 @@ check_internet() {
     fi
 
     if [ $? -ne 0 ]; then
-        printf "${b}[${g}*${b}]${c} Sorry, internet connection is needed.\n"
+        echo "Sorry, internet connection is needed."
         exit 1
     fi
 }
@@ -38,15 +44,8 @@ printf "${b}[${g}*${b}]${c} Updating packages ${g}.....${r}\n"
 
 # Login to Ubuntu and run commands sequentially
 proot-distro login ubuntu -- apt update -y
-
-
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
+banner
 printf "${b}[${g}*${b}]${c} Installing packages ${g}.....${r}\n"
-
 proot-distro login ubuntu -- dpkg --configure -a
 proot-distro login ubuntu -- apt update -y
 
@@ -203,79 +202,55 @@ r="\e[0m"      # Reset
 # --------------------------
 
 # Browser
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Select Browser${r}\n"
+banner
+printf " ${b}[${g}*${b}]${c} Select Browser${r}\n"
 printf " ${b}[${g}1${b}]${c} Firefox ESR${r}\n"
 printf " ${b}[${g}2${b}]${c} Falkon${r}\n"
 printf " ${b}[${g}3${b}]${c} Both (Firefox ESR + Falkon)${r}\n"
 printf " ${b}[${g}4${b}]${c} Skip${r}\n"
-printf "Enter option: "
+printf " ${b}[${g}*${b}]${c} Enter option: "
 read BROWSER_CHOICE
 
 # Text Editor (only nano)
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Do you want to install Text Editor (nano)?${r}\n"
+banner
+printf " ${b}[${g}*${b}]${c} Do you want to install Text Editor (nano)?${r}\n"
 printf " ${b}[${g}1${b}]${c} Yes${r}\n"
 printf " ${b}[${g}2${b}]${c} No${r}\n"
-printf "Enter option: "
+printf " ${b}[${g}*${b}]${c} Enter option: "
 read EDITOR_CHOICE
 
 # MPV Player
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Do you want to install MPV Player ?${r}\n"
+banner
+printf " ${b}[${g}*${b}]${c} Do you want to install MPV Player ?${r}\n"
 printf " ${b}[${g}1${b}]${c} Yes${r}\n"
 printf " ${b}[${g}2${b}]${c} No${r}\n"
-printf "Enter option: "
+printf " ${b}[${g}*${b}]${c} Enter option: "
 read MPV_CHOICE
 
 # Graphic Tool
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Select Graphic Tool${r}\n"
+banner
+printf " ${b}[${g}*${b}]${c} Select Graphic Tool${r}\n"
 printf " ${b}[${g}1${b}]${c} GIMP${r}\n"
 printf " ${b}[${g}2${b}]${c} Inkscape${r}\n"
 printf " ${b}[${g}3${b}]${c} Both${r}\n"
 printf " ${b}[${g}4${b}]${c} Skip${r}\n"
-printf "Enter option: "
+printf " ${b}[${g}*${b}]${c} Enter option: "
 read GFX_CHOICE
 
 # Display Manager
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
-printf "${b}[${g}*${b}]${c} Select Display Manager${r}\n"
+banner
+printf " ${b}[${g}*${b}]${c} Select Display Manager${r}\n"
 printf " ${b}[${g}1${b}]${c} lightdm${r}\n"
 printf " ${b}[${g}2${b}]${c} xdm${r}\n"
 printf " ${b}[${g}3${b}]${c} Skip${r}\n"
-printf "Enter option: "
+printf " ${b}[${g}*${b}]${c} Enter option: "
 read DM_CHOICE
 
 # --------------------------
 # After choices: print banner + installing message
 # --------------------------
 clear
-# exact banner (you requested this exact banner)
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
+banner
 
 printf "${b}[${g}*${b}]${c} Installing selected packages ${r}\n"
 
@@ -283,7 +258,7 @@ printf "${b}[${g}*${b}]${c} Installing selected packages ${r}\n"
 # Update inside proot once (so apt-cache checks will be current)
 # --------------------------
 printf "${b}[${g}*${b}]${c} Updating package lists inside Ubuntu... ${r}\n"
-proot-distro login ubuntu -- apt update -y >/dev/null 2>&1
+
 
 # --------------------------
 # Prepare list of packages to try installing (based on user choices)
@@ -346,7 +321,7 @@ for pkg in "${UNIQ_PKGS[@]}"; do
         if [ $? -eq 0 ]; then
             printf "${b}[${g}*${b}]${c} ${pkg} installed successfully${r}\n"
         else
-            printf "${b}[${g}*${b}]${c} Failed to install ${pkg} (see apt output)${r}\n"
+            printf "${b}[${g}*${b}]${c} Failed to install ${pkg} (see apt output).${r}\n" && dpkg --configure -a
         fi
     else
         printf "${b}[${g}*${b}]${c} ${pkg} not found in Ubuntu repos — skipping${r}\n"
@@ -358,11 +333,8 @@ printf "${b}[${g}*${b}]${c} Installation process finished${r}\n"
 
 
 
-clear
-printf "\e[1;33m    _  _ ___  _  _ _  _ ___ _  _\n"
-printf "\e[1;96m    |  | |__] |  | |\\ |  |  |  |\n"
-printf "\e[1;92m    |__| |__] |__| | \\|  |  |__|\n"
-printf "\e[1;92m     PROOT-DISTRO-UBUNTU\n\n\e[0m"
+sleep 3
+banner
 
 printf "${b}[${g}*${b}]${g} Creating launchers ${g}.....${r}\n"
 
@@ -397,6 +369,9 @@ printf "${b}[${g}*${b}]${c} Enjoy! ${r}\n"
 }
 
 install_lite_desktop(){
+banner
+printf "${c}[${g}*${c}]${g} Updating packages${g}.....${r}\n"
+proot-distro login ubuntu -- apt update -y
 banner
 printf "${c}[${g}*${c}]${g} Installing xfce4-session${r}\n"
 proot-distro login ubuntu -- apt install xfce4-session -y
