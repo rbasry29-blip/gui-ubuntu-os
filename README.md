@@ -130,7 +130,7 @@ chmod +x *
 ```
 And go to termux-x11 app and
 Enjoy
-## *Please give a star ⭐ to this report*
+## *Please give a star ⭐ to this repo*
 # Stuck problem
 
 If you stuck on 
