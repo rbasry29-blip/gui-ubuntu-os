@@ -135,8 +135,8 @@ chmod +x *
 ```
 And go to termux-x11 app and
 Enjoy
-## *⭐ Support
-If this helped you, please give a star ⭐❤️‍🔥  
+## ⭐ Support
+*If this helped you, please give a star ⭐❤️‍🔥  
 Your support keeps the project alive 🚀*
 # Stuck problem
 
