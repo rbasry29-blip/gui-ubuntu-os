@@ -3,8 +3,9 @@
 # What's new 
 - Fixed some bug
 - Added more feature
-- Full [8GB] or liteweight choice [2GB]
-- Improved performance
+- 📦 Full [8GB] or liteweight choice [2GB]
+- 🚀 Improved performance
+- ⚡ Smooth and fast GUI 🖥️
 # 📸 Previwe
 <img width="1600" height="720" alt="1000011367" src="https://github.com/user-attachments/assets/fe3892ae-e286-46d1-88e3-22795acdf09f" />
 
@@ -17,9 +18,9 @@
 
 - Comes with much themes
 
-- 2 Browsers (Firefox and falkon )
+- 🌐 2 Browsers (Firefox and falkon )
 
-# Requirements 
+# 🧰 Requirements 
 
 
  - At least 2 GB of storage
@@ -84,7 +85,7 @@ chmod +x *
 ```
 
 
-After that, run
+If you want GUI , run
 
 
 
@@ -94,6 +95,10 @@ After that, run
 
 
 
+
+## *Note 📌*
+⚠️ Installation may take up to 2 hours
+Depending on Device 
 
 In any question,  only hit enter,  
 You should have 6 gb + storage,  the installation may take 2 hour. 
