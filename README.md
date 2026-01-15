@@ -18,7 +18,7 @@
 
 - Comes with much themes
 
-- 🌐 2 Browsers (Firefox and falkon )
+- 🌐 2 Browsers (🦊 Firefox + 🌍 Falkon)
 
 # 🧰 Requirements 
 
