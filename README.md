@@ -97,7 +97,7 @@ If you want GUI , run
 
 
 ## *Note 📌*
-⚠️ Installation may take up to 2 hours
+⚠️ GUI installation may take up to 2 hours
 Depending on Device 
 
 In any question,  only hit enter,  
