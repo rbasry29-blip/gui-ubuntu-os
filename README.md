@@ -11,7 +11,7 @@
 
 <p align="center"><b>Run Ubuntu gui in easiest way.</b></p>
 
-# features 
+# 🚀 Features 
 
 - Run ubuntu in termux-x11
 
