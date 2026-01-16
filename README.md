@@ -1,10 +1,13 @@
-# gui-ubuntu-os 
+# gui-ubuntu-os ⭐🚀
 # Update 1.12.20
-# What's new 
-- Fixed some bug
-- Added more feature
-- 📦 Full [8GB] or liteweight choice [2GB]
-- 🚀 Improved performance
+
+Run Ubuntu GUI on Android using Termux-X11 🖥️📱
+
+## 🎉 What's New
+- Fixed some bugs 🐛
+- Added new features ✨
+- Full [8GB] or Lite [2GB] choice 📦
+- Improved performance ⚡
 - ⚡ Smooth and fast GUI 🖥️
 # 📸 Previwe
 <img width="1600" height="720" alt="1000011367" src="https://github.com/user-attachments/assets/fe3892ae-e286-46d1-88e3-22795acdf09f" />
