@@ -3,7 +3,7 @@
 
 Run Ubuntu GUI on Android using Termux-X11 🖥️📱
 
-### 🎉 What's New
+## 🎉 What's New
 - Fixed some bugs 🐛
 - Added new features ✨
 - Full [8GB] or Lite [2GB] choice 📦
